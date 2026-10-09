@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tyranny</title>
+<meta name="description" content="A door with no wall. Wander in, find Minv and Automedia, and paint your own sign. Nobody has to approve it.">
+<meta name="theme-color" content="#e9dcea">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tyranny.me/">
+<meta property="og:title" content="Tyranny">
+<meta property="og:description" content="A door with no wall. Come through, or come around.">
+<meta property="og:image" content="https://tyranny.me/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@tyrannyme">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/cormorant-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/art/arrival.webp" as="image" type="image/webp">
+<link rel="stylesheet" href="/style.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="/main.js" defer></script>
+</head>
+<body>
+
+<!-- I. The door -->
+<section class="arrival" id="arrival" aria-label="A door with no wall">
+  <div class="stage">
+    <img class="stage-art" src="/art/arrival.webp" srcset="/art/arrival-960.webp 960w, /art/arrival.webp 1672w" sizes="max(100vw, 177.78vh)" width="1672" height="941" alt="A lone stone doorway standing in endless dusk fog, with no wall on either side. Footprints in the water walk around it.">
+    <p class="motto" lang="la">Sic semper<br>tyrannis</p>
+    <button class="door-hit" type="button" aria-label="Walk through the door"></button>
+  </div>
+  <div class="arrival-words">
+    <p class="whisper">There is no wall.</p>
+    <p class="hint">Walk through, or walk around.</p>
+  </div>
+</section>
+
+<!-- II. The drift -->
+<section class="drift" id="drift" aria-label="The drift" hidden>
+  <div class="sky" aria-hidden="true"></div>
+  <div class="layer far" data-depth="0.45" aria-hidden="true">
+    <img class="cloud" src="/art/clouds.webp" alt="" data-style="--x:-300px;--y:300px;--s:1.3">
+    <img class="cloud" src="/art/clouds.webp" alt="" data-style="--x:1500px;--y:-200px;--s:1">
+    <img class="cloud" src="/art/clouds.webp" alt="" data-style="--x:900px;--y:1300px;--s:1.5">
+  </div>
+
+  <div class="world" data-depth="1">
+    <svg class="threads" viewBox="0 0 5000 3400" aria-hidden="true">
+      <path d="M2500 1820 Q 2080 1680, 1900 1300"/>
+      <path d="M2500 1820 Q 2140 2165, 1700 2150"/>
+      <path d="M2500 1820 Q 2815 2255, 3250 2330"/>
+      <path d="M2500 1820 Q 2985 1490, 3350 1480"/>
+      <path d="M2500 1820 Q 2415 1400, 2650 980"/>
+      <path d="M1700 2150 Q 1765 2580, 2150 2850"/>
+    </svg>
+
+    <div class="frag" id="f-door" data-style="--x:2500px;--y:1700px;--w:400px" data-near="560">
+      <img src="/art/door.webp" width="720" height="960" alt="" loading="lazy" decoding="async">
+      <p class="whisper">You came through here. Or around it. Same thing.</p>
+    </div>
+
+    <button class="frag link" id="f-crown" type="button" data-style="--x:1900px;--y:1180px;--w:480px" data-near="520" data-open="d-tyranny" aria-label="The crown: about Tyranny">
+      <img src="/art/crown.webp" width="900" height="900" alt="" loading="lazy" decoding="async">
+      <span class="whisper">The crown was never the point.</span>
+    </button>
+
+    <button class="frag link" id="f-window" type="button" data-style="--x:1700px;--y:2050px;--w:560px" data-near="560" data-open="d-minv" aria-label="The window: Minv">
+      <img src="/art/window.webp" width="900" height="900" alt="" loading="lazy" decoding="async">
+      <span class="whisper">Everything you never opened fell away.</span>
+    </button>
+
+    <button class="frag link" id="f-projector" type="button" data-style="--x:3250px;--y:2250px;--w:600px" data-near="600" data-open="d-automedia" aria-label="The projector: Automedia">
+      <span class="beam" aria-hidden="true"><i></i><i></i><i></i></span>
+      <img src="/art/projector.webp" width="900" height="900" alt="" loading="lazy" decoding="async">
+      <span class="whisper">Write a page. Watch it move.</span>
+    </button>
+
+    <button class="frag link" id="f-sign" type="button" data-style="--x:3350px;--y:1350px;--w:460px" data-near="560" data-open="d-sign" aria-label="The blank sign: paint your own">
+      <img src="/art/sign.webp" width="720" height="960" alt="" loading="lazy" decoding="async">
+      <canvas class="sign-overlay" width="1200" height="800" aria-hidden="true"></canvas>
+      <span class="whisper" data-after="Nobody approved this. Nobody had to.">Blank, and yours.</span>
+    </button>
+
+    <div class="frag" id="f-stairs" data-style="--x:2650px;--y:820px;--w:300px" data-near="460">
+      <img src="/art/stairs.webp" width="720" height="960" alt="" loading="lazy" decoding="async">
+      <p class="whisper">Stairs to a room nobody was allowed to build. Build it.</p>
+    </div>
+
+    <div class="frag" id="f-chair" data-style="--x:2150px;--y:2750px;--w:380px" data-near="480">
+      <img src="/art/chair.webp" width="900" height="900" alt="" loading="lazy" decoding="async">
+      <p class="whisper">The seat is empty. Sit anywhere.</p>
+    </div>
+  </div>
+
+  <div class="layer fore" data-depth="1.6" aria-hidden="true">
+    <img class="cloud" src="/art/clouds.webp" alt="" data-style="--x:4200px;--y:2000px;--s:1.1">
+    <img class="cloud" src="/art/clouds.webp" alt="" data-style="--x:2800px;--y:2600px;--s:1.1">
+    <img class="cloud" src="/art/clouds.webp" alt="" data-style="--x:4000px;--y:3400px;--s:1.2">
+  </div>
+
+  <p class="drift-hint" aria-hidden="true">Drag to drift</p>
+</section>
+
+<!-- Things found in the drift -->
+<dialog class="card" id="d-minv" aria-labelledby="d-minv-title">
+  <p class="label">The window</p>
+  <h2 id="d-minv-title">Minv</h2>
+  <p class="lede">VS Code, minus everything you never open.</p>
+  <img class="shot" src="/art/minv.webp" width="1440" height="900" alt="Minv with Source Control open: every submodule’s branch in the Repositories list, the changes and graph, and a README beside its rendered preview." loading="lazy" decoding="async">
+  <p>Explorer, search, the terminal, Git, and up to 256 submodules. The debugger, AI chat, the marketplace and telemetry fell away. What’s left opens fast and stays quiet. Free, for Linux and Windows.</p>
+  <p class="links"><a href="https://minv.tyranny.me">minv.tyranny.me</a><a href="https://github.com/tyrannyme/minv">Source</a></p>
+  <form method="dialog"><button class="close" aria-label="Back to the drift">×</button></form>
+</dialog>
+
+<dialog class="card" id="d-automedia" aria-labelledby="d-automedia-title">
+  <p class="label">The projector</p>
+  <h2 id="d-automedia-title">Automedia</h2>
+  <p class="lede">HTML in. Video out.</p>
+  <video class="shot" muted loop playsinline preload="none" poster="/art/automedia-poster.webp" width="1280" height="720" aria-label="A short film made with Automedia: an agent builds a video in four tool calls.">
+    <source src="/art/automedia.webm" type="video/webm">
+    <source src="/art/automedia.mp4" type="video/mp4">
+  </video>
+  <p>A local engine that turns HTML, CSS and JavaScript into stills, animations and video. Agents write the projects; you scrub, tweak and export. No render farm, no subscription, nobody’s permission.</p>
+  <p class="links"><a href="https://automedia.tyranny.me">automedia.tyranny.me</a><a href="https://github.com/tyrannyme/automedia">Source</a></p>
+  <form method="dialog"><button class="close" aria-label="Back to the drift">×</button></form>
+</dialog>
+
+<dialog class="card" id="d-tyranny" aria-labelledby="d-tyranny-title">
+  <p class="label">The crown</p>
+  <h2 id="d-tyranny-title">Tyranny</h2>
+  <p class="lede">Every gate guards something somebody decided you couldn’t have.</p>
+  <p>A tool, a stage, a license, a platform, a seat at the table. Tyranny builds the opposite: tools that hand the power back, so anyone can make the thing in their head without asking first.</p>
+  <p class="inscription"><span lang="la">Sic semper tyrannis.</span> Thus always to tyrants, and to every gate that guards nothing.</p>
+  <p class="links"><a href="https://x.com/tyrannyme" rel="me">@tyrannyme on X</a><a href="https://github.com/tyrannyme" rel="me">GitHub</a></p>
+  <form method="dialog"><button class="close" aria-label="Back to the drift">×</button></form>
+</dialog>
+
+<dialog class="painter" id="d-sign" aria-labelledby="d-sign-title">
+  <h2 id="d-sign-title" class="painter-title">Say it. Nobody has to approve it.</h2>
+  <div class="paper-wrap">
+    <canvas class="paper" width="1200" height="800" aria-label="Your sign. Draw with a pointer, or switch to words and tap to place text."></canvas>
+  </div>
+  <div class="tools" role="toolbar" aria-label="Sign tools">
+    <div class="inks" role="radiogroup" aria-label="Paint">
+      <button type="button" role="radio" aria-checked="true" aria-label="Ultramarine" data-style="--ink:#2f3f8f"></button>
+      <button type="button" role="radio" aria-checked="false" aria-label="Ink" data-style="--ink:#26222e"></button>
+      <button type="button" role="radio" aria-checked="false" aria-label="Rose" data-style="--ink:#c4486a"></button>
+      <button type="button" role="radio" aria-checked="false" aria-label="Apricot" data-style="--ink:#e98a4f"></button>
+      <button type="button" role="radio" aria-checked="false" aria-label="Moss" data-style="--ink:#5d7a45"></button>
+      <button type="button" role="radio" aria-checked="false" aria-label="Lilac" data-style="--ink:#9a7fc4"></button>
+    </div>
+    <div class="sizes" role="radiogroup" aria-label="Brush size">
+      <button type="button" role="radio" aria-checked="false" aria-label="Thin" data-size="8"><i data-style="--d:6px"></i></button>
+      <button type="button" role="radio" aria-checked="true" aria-label="Medium" data-size="20"><i data-style="--d:11px"></i></button>
+      <button type="button" role="radio" aria-checked="false" aria-label="Thick" data-size="44"><i data-style="--d:17px"></i></button>
+    </div>
+    <label class="words">
+      <span class="visually-hidden">Words to place on the sign</span>
+      <input type="text" maxlength="60" placeholder="Type words, then tap the sign" autocomplete="off" enterkeyhint="done">
+    </label>
+    <div class="actions">
+      <button type="button" class="tool" data-act="undo">Undo</button>
+      <button type="button" class="tool" data-act="clear">Clear</button>
+      <button type="button" class="tool" data-act="save">Take it home</button>
+      <button type="button" class="tool primary" data-act="raise">Put it up</button>
+    </div>
+  </div>
+  <form method="dialog"><button class="close" aria-label="Back to the drift">×</button></form>
+</dialog>
+
+<noscript>
+  <div class="noscript">
+    <p><a href="https://minv.tyranny.me">Minv</a>: VS Code, minus everything you never open.</p>
+    <p><a href="https://automedia.tyranny.me">Automedia</a>: HTML in. Video out.</p>
+    <p><a href="https://x.com/tyrannyme">@tyrannyme on X</a> · <a href="https://github.com/tyrannyme">GitHub</a></p>
+  </div>
+</noscript>
+
+</body>
+</html>
