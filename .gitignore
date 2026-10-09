@@ -1,7 +1,2 @@
 .wrangler/
 node_modules/
-
-# Source art and generation outputs; the site ships its own optimized copies.
-/art/
-/art2/
-/concept/
