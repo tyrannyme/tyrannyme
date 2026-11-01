@@ -13,6 +13,8 @@
 
 **[Automedia](https://github.com/tyrannyme/automedia)**: HTML in, video out. A local engine that turns HTML, CSS and JavaScript into stills, animations and video. No render farm, no subscription, nobody’s permission. [automedia.tyranny.me](https://automedia.tyranny.me)
 
+**[Blossom](https://github.com/tyrannyme/blossom)**: Paint first. Sign in only if you want company. A drawing app for mouse, pen and touch, with live multiplayer for up to eight. No install, no account to start. [blossom.tyranny.me](https://blossom.tyranny.me)
+
 There’s also a blank sign waiting at [tyranny.me](https://tyranny.me). Paint it. Nobody has to approve it.
 
 <p align="center"><sub><b>SIC SEMPER TYRANNIS</b> · thus always to tyrants, and to every gate that guards nothing</sub></p>
